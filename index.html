@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="mpDashboard">
+    <head>
+        <meta charset="utf-8" />
+        <title>MP Dashboard</title>
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <meta name="viewport" content="width=device-width; initial-scale=1.0" />
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+        <link rel="stylesheet" media="all" href="static/css/bootstrap.min.css" >
+        <link rel="stylesheet" media="all" href="static/css/bootstrap-responsive.min.css" >
+        <link rel="stylesheet" media="all" href="static/css/bullet.css" >
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js">
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular-resource.min.js">
+        </script>
+        <script src="static/js/ui-bootstrap-tpls-0.5.0.min.js" ></script>
+    </head>
+
+    <body data-ng-controller="mpBulletController">
+        <div class="navbar navbar-inverse">
+            <div class="navbar-inner">
+                <a data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
+                <a href="/" class="brand">Dashboards</a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li>
+                            <a href="/one/">one</a>
+                        </li>
+                        <li>
+                            <a href="/two/">two</a>
+                        </li>
+                        <li>
+                            <a href="/three/">three</a>
+                        </li>
+                        <li>
+                            <a href="mp/">MP</a>
+                        </li>
+                        <li>
+                            <a href="/five/">five</a>
+                        </li>
+                    </ul>
+                    <ul class="nav pull-right">
+                        <li>
+                            <a href="#message">Message</a>
+                        </li>
+                        <li class="dropdown">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#settings">Settings <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#admin">Admin</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div>
+            <!-- Placeholder for partials from router -->
+            <div data-ng-view=""></div>
+        </div>
+        <script src="static/js/d3.js"></script>
+        <script src="static/js/bullet.js"></script>
+        <script src="static/mp/mp.js"></script>
+        <script src="static/mp/controllers/controllers.js"></script>
+        <script src="static/mp/directives/directives.js"></script>
+        <script src="static/mp/services/services.js"></script>
+    </body>
+</html>
