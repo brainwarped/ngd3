@@ -11,15 +11,15 @@
 
 // configure routes and associate each route with a view and a controller
 var mpDashboard = angular.module('mpDashboard', ['d3', 'ngResource']).
-  config('$routeProvider', function ($routeProvider) {
+  config(['$routeProvider', function ($routeProvider) {
   $routeProvider.
     when('/',
     {
         controller: 'mpBulletController',
-        templateUrl: '/partials/View1.html'
+        templateUrl: '../static/mp/partials/View1.html'
     }).
     otherwise({ redirectTo: '/' });
-});
+}]);
 
 
 
