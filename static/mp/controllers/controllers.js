@@ -1,14 +1,10 @@
 // controllers
 
-mpDashboard.controller('mpBulletController', 
-  function($scope) {
+angular.module('mpDashboard')
+.controller('mpBulletController', 
+  ['$scope', function($scope) {
 	// query data to pass to d3
-    $scope.bullets = [];
-
-    init();
-
-    function init() {
-       $scope.bullets = [
+    $scope.bullets = [
 				  {"title":"Revenue","subtitle":"US$, in thousands","ranges":[150,225,300],"measures":[220,270],"markers":[250]},
 				  {"title":"Profit","subtitle":"%","ranges":[20,25,30],"measures":[21,23],"markers":[26]},
 				  {"title":"Order Size","subtitle":"US$, average","ranges":[350,500,600],"measures":[100,320],"markers":[550]},
@@ -16,4 +12,4 @@ mpDashboard.controller('mpBulletController',
 				  {"title":"Satisfaction","subtitle":"out of 5","ranges":[3.5,4.25,5],"measures":[3.2,4.7],"markers":[4.4]}
 				];
     }
-});
+}]);

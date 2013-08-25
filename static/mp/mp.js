@@ -10,7 +10,7 @@
 'use strict';
 
 // configure routes and associate each route with a view and a controller
-var mpDashboard = angular.module('mpDashboard', ['d3', 'ngResource']).
+angular.module('mpDashboard', ['d3']).
   config(['$routeProvider', function ($routeProvider) {
   $routeProvider.
     when('/',
