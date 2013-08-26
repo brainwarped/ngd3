@@ -1,7 +1,8 @@
 // controllers
+(function() {
 'use strict';
 
-angular.module('mpDashboard')
+angular.module('mpDashboard.controllers', [])
 .controller('mpBulletController', 
   ['$scope', function($scope) {
 	// initial data for d3
@@ -36,3 +37,4 @@ angular.module('mpDashboard')
     };
     ***/
 }]);
+}).call(this);

@@ -6,10 +6,11 @@
       /services
       /partials
 ***/
+(function() {
 'use strict';
 
 // configure routes and associate each route with a view and a controller
-angular.module('mpDashboard', ['d3']).
+angular.module('mpDashboard', ['d3', 'mpDashboard.controllers', 'mpDashboard.directives']).
   config(['$routeProvider', function ($routeProvider) {
   $routeProvider.
     when('/',
@@ -20,5 +21,5 @@ angular.module('mpDashboard', ['d3']).
     otherwise({ redirectTo: '/' });
 }]);
 
-
+}).call(this);
 
