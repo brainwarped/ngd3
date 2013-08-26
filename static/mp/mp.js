@@ -1,11 +1,10 @@
 /***
   App is broken into the following folder structure
-  /mpApp
+  /mp
       /controllers      
       /directives
       /services
       /partials
-      /views
 ***/
 'use strict';
 
@@ -16,7 +15,7 @@ angular.module('mpDashboard', ['d3']).
     when('/',
     {
         controller: 'mpBulletController',
-        templateUrl: '../static/mp/partials/View1.html'
+        templateUrl: 'static/mp/partials/View1.html'
     }).
     otherwise({ redirectTo: '/' });
 }]);
