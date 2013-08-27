@@ -38,10 +38,23 @@ directive('scDirective', ['d3', function (d3) {
         // check scope
         if (angular.isDefined(scope.data)) data = scope.data;
 
-        // helper functions
-        var parseData = function (data) {
-            if(angular.isDefined(data)){
-                alert('you have data');
+        //create chart
+        var buildChart = function (data) {
+            //create svg for chart injection
+            chart = d3.bullet().
+                width(width).
+                height(height);
+            // select attributes    
+            svg = d3.select("body").selectAll("svg").
+                data(data).
+                enter().append("svg").
+                attr("class", "bullet").
+                attr("width", width + margin.left + margin.right).
+                attr("height", height + margin.top + margin.bottom).
+                append("g").
+                attr("transform", "translate(" + margin.left + "," + margin.top + ")").
+                call(chart);
+                
                 title = svg.append("g").
                     style("text-anchor", "end").
                     attr("transform", "translate(-6," + height / 2 + ")");
@@ -55,40 +68,21 @@ directive('scDirective', ['d3', function (d3) {
                     attr("dy", "1em").
                     text(data.subtitle);
             }
-            else if(angular.isDefined(attrs.margin)) {
-                alert('you have height');
+        // helper function
+        var parseChart = function (data) {
+            if(angular.isDefined(scope.data)){
+                data = scope.data;
+                buildChart(data);
             }
             else{
                 alert('you have no data');
-                data = [{}];
             }
             return data;
         };
-        //create chart
-        var buildChart = function (data) {
-            //create svg for chart injection
-            svg = d3.select("body").selectAll("svg").
-                append("svg").
-                attr("class", "bullet").
-                attr("width", width + margin.left + margin.right).
-                attr("height", height + margin.top + margin.bottom).
-                append("g").
-                attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-            
-            chart = d3.bullet().
-                width(width).
-                height(height);
 
-            svg.data(parseData(data)).call(chart);
-            }
-        buildChart(data);
-        // data not available during initial link
-        var updateChart = function(){
-            svg.data(parseData(data)).call(chart);
-            alert(scope.data);
-        }
+        // data not available during initial link, call when its detected
         var doDeepWatch = true;
-        scope.$watch('data',updateChart,doDeepWatch);
+        scope.$watch('data',parseChart,doDeepWatch);
         }
     };
 }]);
