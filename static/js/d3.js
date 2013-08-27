@@ -1,3 +1,4 @@
+(function() {
 'use strict';
 
 angular.module('d3', [])
@@ -7803,3 +7804,4 @@ angular.module('d3', [])
             };
             return d3;
   }]);
+}).call(this);
